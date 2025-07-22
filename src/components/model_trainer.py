@@ -43,11 +43,40 @@ class ModelTrainer:
                 'DecisionTreeRegressor': DecisionTreeRegressor(),
                 'LinearRegression': LinearRegression()
             }
+            params = {
+                'RandomForestRegressor': {
+                    'n_estimators': [8, 16, 32, 64, 128, 256],
+                },
+                'GradientBoostingRegressor': {
+                    'n_estimators': [50, 100],
+                    'learning_rate': [.1, .01, .005, .001],
+                    'subsample': [0.8, 0.9, 1.0],
+                },
+                'AdaBoostRegressor': {
+                    'n_estimators': [50, 100],
+                    'learning_rate': [0.01, 0.1]
+                },
+                'XGBRegressor': {
+                    'n_estimators': [8, 16, 32, 64, 128, 256],
+                    'learning_rate': [.1, .01, .005, .001],
+                },
+                'CatBoostRegressor': {
+                    'iterations': [50, 100],
+                    'learning_rate': [0.01, 0.1]
+                },
+                'KNeighborsRegressor': {
+                    'n_neighbors': [5, 7, 9, 11,]
+                },
+                'DecisionTreeRegressor': {
+                    'criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                },
+                'LinearRegression': {}
+            }
 
             logging.info("Evaluating models")
 
             model_report: dict = evaluate_model(
-                X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, models=models
+                X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, models=models, params=params
             )
 
             best_model_score = max(sorted(model_report.values()))
