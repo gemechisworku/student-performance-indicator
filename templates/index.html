@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Performance Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      scroll-behavior: smooth;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="text-white font-sans pt-16 pb-16">
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-gray-900 bg-opacity-60 backdrop-blur border-b border-white border-opacity-10">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-lg font-bold text-blue-300">🎓 Predictor</div>
+      <ul class="flex space-x-6 text-sm font-medium">
+        <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
+        <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
+        <li><a href="{{ url_for('predict_datapoint') }}" class="hover:text-cyan-400 transition">Predict</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center px-6">
+    <div class="text-center max-w-3xl glass p-10 rounded-2xl shadow-lg">
+      <h1 class="text-4xl md:text-5xl font-bold text-blue-200 mb-4">Student Performance Predictor</h1>
+      <p class="text-lg text-gray-200 mb-6">
+        A powerful AI tool to predict students' math scores based on their academic profile and background information.
+      </p>
+      <h2 class="text-xl font-semibold text-cyan-300 mb-2">Why This Predictor?</h2>
+      <p class="text-gray-300 mb-8">
+        Educators often struggle to identify which students need early intervention. This tool uses data-driven insights to anticipate academic outcomes and enable proactive support strategies. It's intuitive, fast, and accessible to both educators and learners.
+      </p>
+      <a href="{{ url_for('predict_datapoint') }}" class="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full hover:scale-105 transition transform duration-300 shadow-xl text-white font-semibold">
+        🚀 Launch Predictor
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto glass p-8 rounded-xl">
+      <h2 class="text-3xl font-bold text-center text-blue-100 mb-6">About</h2>
+      <p class="text-gray-200 text-center mb-4 text-lg">
+        The Student Performance Predictor is designed to transform educational assessment using AI. It provides personalized predictions for students’ math scores based on key demographic and academic features.
+      </p>
+      <h3 class="text-xl text-cyan-300 font-semibold mt-6 mb-2 text-center">🧠 How It Works</h3>
+      <ul class="text-gray-300 list-disc list-inside space-y-2 max-w-xl mx-auto">
+        <li><strong>Input Collection:</strong> The user enters key information like gender, ethnicity, parental education, lunch type, and prep course status.</li>
+        <li><strong>Score Inputs:</strong> The student’s writing and reading scores are added to the form.</li>
+        <li><strong>ML Model:</strong> A machine learning model (trained on real exam data) processes the inputs and predicts the most likely math score.</li>
+        <li><strong>Output:</strong> The predicted score is displayed immediately to guide the educator or student in taking the next step.</li>
+      </ul>
+      <p class="text-center mt-6 text-gray-400 italic">Empowering learning through data — because every student deserves to succeed.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto glass p-8 rounded-xl">
+      <h2 class="text-3xl font-bold text-center text-blue-100 mb-4">Contact</h2>
+      <p class="text-gray-200 text-center mb-4">
+        Interested in this project, collaboration opportunities, or have feedback?
+      </p>
+      <div class="text-center text-gray-300 space-y-2">
+        📧 Email: <a href="mailto:your.email@example.com" class="underline text-blue-300">your.email@example.com</a><br>
+        💼 LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" class="underline text-blue-300" target="_blank">linkedin.com/in/yourprofile</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fixed Footer -->
+  <footer class="fixed bottom-0 left-0 w-full bg-gray-900 bg-opacity-60 backdrop-blur text-center text-sm text-gray-400 py-3 border-t border-white border-opacity-10 z-50">
+    © 2025 Predictor. Built by Gemechis Worku
+  </footer>
+</body>
+</html>
